@@ -1,0 +1,14 @@
+.container_home {
+  margin-top: 80px;
+  text-align: justify;
+}
+span {
+  margin: 5px;
+}
+
+.mountainTitle {
+  text-align: center;
+  line-height: 4em;
+  color: white;
+  font-size: 3rem;
+}

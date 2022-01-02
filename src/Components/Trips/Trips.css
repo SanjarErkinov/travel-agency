@@ -1,0 +1,39 @@
+/* Trips Card */
+.card {
+  width: 300px;
+  height: 220px;
+  border-radius: 5px;
+  margin: 10px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.card h3 {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.cardBg {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  text-align: center;
+  background-color: transparent;
+}
+
+.cardBg:hover {
+  background-color: rgba(255, 99, 71, 0.489);
+  transition: 0.3s;
+}
+
+/* Trips List */
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Trips Details */
+.details {
+  margin-top: 200px;
+}

@@ -1,0 +1,21 @@
+.scroll {
+  position: fixed;
+  right: 2%;
+  bottom: 10%;
+}
+
+.scrollButton {
+  color: #0091d4;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  transition: color 0.4s;
+  opacity: 0.7;
+}
+.scrollButton:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.scrollButton:active {
+  opacity: 0.7;
+}
