@@ -3,28 +3,68 @@
   width: 300px;
   height: 220px;
   border-radius: 5px;
-  margin: 10px;
+  margin: 10px 13px;
   background-size: cover;
   cursor: pointer;
 }
 
-.card h3 {
+.cardBg__first {
+  width: 100%;
+  height: 80%;
+}
+
+.cardBg__first h3 {
   margin: 0;
-  padding: 0;
+  padding: 12px 12px 3px 15px;
   color: white;
+}
+.cardBg__first h5 {
+  margin: 0 0 10px 0;
+  padding: 5px 10px 3px 15px;
+  color: white;
+  font-weight: 600;
+}
+
+.afterContext {
+  display: inline-block;
+  margin-left: 15px;
+  width: 90%;
+  height: 52%;
+  font-size: 0.88rem;
+  font-weight: 500;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em;
+  height: 4.8em;
+  color: rgba(255, 255, 255, 0.959);
+  transition: all 1s;
+}
+
+.afterContext:hover:after {
+  content: attr(context);
 }
 
 .cardBg {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  text-align: center;
   background-color: transparent;
+  transition: 0.5s;
+}
+.cardBg_span {
+  display: inline-block;
+  margin: -50px 0 0 0;
+  padding: 4px 6px;
+  min-width: 80px;
+  background-color: #f15a24;
+  border-radius: 0 15px 15px 0;
+  color: rgba(255, 255, 255, 0.959);
 }
 
 .cardBg:hover {
-  background-color: rgba(255, 99, 71, 0.489);
-  transition: 0.3s;
+  background-color: rgba(255, 99, 71, 0.616);
 }
 
 /* Trips List */
@@ -33,7 +73,215 @@
   flex-wrap: wrap;
 }
 
+.paginationBttns {
+  width: 80%;
+  height: 10%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 5% auto;
+}
+
+.paginationBttns a {
+  padding: 10%;
+  margin: 10% 8px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(0, 145, 212, 0.904);
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: rgba(0, 145, 212, 0.904);
+}
+
+.paginationActive a {
+  color: white;
+  background-color: rgba(0, 145, 212, 0.904);
+}
+
 /* Trips Details */
 .details {
-  margin-top: 200px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailsImg {
+  width: 100%;
+  height: 500px;
+  background-size: auto;
+  margin-top: 80px;
+}
+
+.details__left {
+  padding: 1%;
+  width: 65%;
+}
+
+.details__left h1 {
+  margin: 5px;
+  font-size: 2.3rem;
+  font-weight: 600;
+  letter-spacing: 0.06rem;
+  color: #333333;
+}
+
+.details__left p {
+  width: 98%;
+  text-align: justify;
+  color: #444444;
+}
+
+.details__left_ul {
+  width: 80%;
+}
+
+.details__left_ul ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.details__left_ul li {
+  margin: 10px 0;
+  font-size: 1.07rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.details__left_ul li > li {
+  margin: 5px 8px;
+  font-size: 1rem;
+  color: #444444;
+  font-weight: 500;
+}
+
+.details__left_ul .review {
+  margin: 0 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: rgba(4, 106, 153, 0.692);
+  cursor: pointer;
+}
+
+.details__left_ul .review:hover {
+  color: rgb(6, 141, 204);
+}
+
+.details__right {
+  padding: 1%;
+  width: 35%;
+}
+
+.details__price {
+  margin-top: -117px;
+  width: 95%;
+  height: 200px;
+  border: 3px solid rgba(0, 145, 212, 0.8);
+  border-radius: 5px;
+}
+
+.details__price_top {
+  width: 100%;
+  height: 50%;
+  background-color: rgba(0, 145, 212, 0.582);
+  text-align: center;
+}
+
+.details__price_top h2 {
+  margin: 0;
+  padding: 15px 10px 0 10px;
+  color: white;
+  font-size: 2.1rem;
+  letter-spacing: 0.09rem;
+}
+
+.details__price_top span {
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.details__price_top-p {
+  margin: 5px auto;
+  border-radius: 15px;
+  padding: 4px;
+  width: 95px;
+  height: 20px;
+  background-color: #00b83b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+}
+
+.details__price .btnFav {
+  margin: 0 75px;
+  width: 180px;
+  padding: 6px 2px;
+  background-color: #00b83b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.details__price .btnFav:hover {
+  transform: scale(1.1);
+}
+.details__price .btnFav:active {
+  transform: scale(0.8);
+}
+
+.details__price_bottom {
+  width: 100%;
+  height: 50%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.details__price_bottom span {
+  color: #666565d3;
+  font-weight: 600;
+}
+
+.details__price_bottom-p {
+  margin: 7px auto;
+  border-radius: 5px;
+  padding: 5px;
+  width: 170px;
+  height: 25px;
+  background-color: #00b83b;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.999);
+  border: 1px solid #02a134;
+  cursor: pointer;
+}
+
+.details__price_bottom-p:hover {
+  transform: scale(1.02);
+}
+.details__price_bottom-p:active {
+  transform: scale(1);
+}
+
+.carousel {
+  width: 70%;
+  z-index: 0 !important;
+  margin: 2%;
+}
+
+.carouselImg {
+  margin: 0 auto;
+  width: 100%;
+  height: 400px;
+}
+
+.loader {
+  margin: 10% 0 5% 46%;
 }

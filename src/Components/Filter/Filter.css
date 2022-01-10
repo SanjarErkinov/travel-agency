@@ -2,8 +2,77 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 20px;
 }
 
 .regions {
-  margin-top: 150px;
+  margin-top: 80px;
+}
+
+.paginationBttns {
+  width: 80%;
+  height: 10%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 5% auto;
+}
+
+.paginationBttns a {
+  padding: 10%;
+  margin: 10% 8px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(0, 145, 212, 0.904);
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: rgba(0, 145, 212, 0.904);
+}
+
+.paginationActive a {
+  color: white;
+  background-color: rgba(0, 145, 212, 0.904);
+}
+
+/* Search */
+.searchContainer {
+  display: flex;
+}
+
+.searchWindow {
+  margin: 28px auto;
+  padding: 0 10px 0 10px;
+  outline: none;
+  width: 90%;
+  height: 50px;
+  border-radius: 60px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border: 1px solid white;
+  transition: 0.4s;
+}
+
+.searchWindow:focus {
+  border: none;
+  background-color: white;
+  color: rgb(172, 172, 172);
+}
+
+.searchIconBtn {
+  margin-top: 18px;
+  width: 67px;
+  height: 70px;
+  color: rgb(253, 253, 253);
+  cursor: pointer;
+}
+
+.searchIconBtn:hover {
+  opacity: 0.8;
 }

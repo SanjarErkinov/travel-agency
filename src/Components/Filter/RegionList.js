@@ -3,6 +3,7 @@ import { tripsContext } from "../../contexts/TripsContext";
 import TripsCard from "../Trips/TripsCard";
 import ReactPaginate from "react-paginate";
 import "./Filter.css";
+import Content from "../Content/Content";
 
 const RegionList = () => {
   const { regions } = useContext(tripsContext);
@@ -19,12 +20,16 @@ const RegionList = () => {
   const displayRegions = regions
     .slice(pagesVisited, pagesVisited + regionsPerPage)
     .map((item) => <TripsCard item={item} key={item.id} />);
-  console.log(displayRegions);
 
   return (
-    <div className="container regions">
+    <div className="regions">
+      <img
+        src="https://asiamountains.net/upload/slide/slide-1960x857-07.jpg"
+        alt="mountain"
+        style={{ width: "100%", height: "300px" }}
+      />
       {displayRegions.length ? (
-        <>
+        <div className="container">
           <div className="list">{displayRegions}</div>
           {displayRegions.length > 6 ? (
             <ReactPaginate
@@ -39,10 +44,17 @@ const RegionList = () => {
               activeClassName={"paginationActive"}
             />
           ) : null}
-        </>
+        </div>
       ) : (
-        <div>"нет ничего"</div>
+        <div className="container">
+          <h3 style={{ fontWeight: "500", margin: 30 }}>
+            К сожалению, по Вашему запросу ничего не найдено. Напишите нам в
+            чат, мы всегда онлайн и всегда Вам поможем.
+          </h3>
+        </div>
       )}
+      <hr />
+      <Content />
     </div>
   );
 };

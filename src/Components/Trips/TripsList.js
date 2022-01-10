@@ -10,17 +10,19 @@ const TripsList = () => {
 
   useEffect(() => {
     getTrips();
+  }, []);
+  useEffect(() => {
     getRegion();
   }, []);
 
   function scrollToTop() {
     document.documentElement.scrollTo({
-      top: 300,
+      top: 460,
       behavior: "smooth",
     });
   }
 
-  const tripsPerPage = 6;
+  const tripsPerPage = 9;
   const pagesVisited = pageNumber * tripsPerPage;
 
   const pageCount = Math.ceil(trips.length / tripsPerPage);
@@ -35,7 +37,7 @@ const TripsList = () => {
   return (
     <>
       <div className="list">{displayTrips}</div>
-      {trips.length > 6 ? (
+      {trips.length > 9 ? (
         <ReactPaginate
           previousLabel={"Назад"}
           nextLabel={"Вперед"}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import "./Login.css";
 
@@ -17,33 +18,16 @@ const Login = () => {
     confirmPassword,
     setConfirmPassword,
     confirmPasswordError,
-    userName,
-    setUserName,
   } = useAuth();
 
   return (
-    <section className="login">
-      <div className="loginContainer">
-        <h3>Добро пожаловать</h3>
-        {!hasAccount ? (
-          <>
-            <label className="authLabel">Придумайте ник*</label>
-            <input
-              className="authInput"
-              autoFocus
-              type="text"
-              required
-              value={userName}
-              onChange={(e) => {
-                setUserName(e.target.value);
-              }}
-            />
-          </>
-        ) : null}
-        <label className="authLabel">Email*</label>
+    <div className="login">
+      <div className="loginContainer container">
+        <h1>Добро пожаловать</h1>
         <input
           className="authInput"
           autoFocus
+          placeholder="Email"
           type="text"
           required
           value={email}
@@ -52,11 +36,11 @@ const Login = () => {
           }}
         />
         <p className="errorMsg">{emailError}</p>
-        <label className="authLabel">Введите пароль*</label>
         <input
           className="authInput"
           autoFocus
           type="password"
+          placeholder="Пароль"
           required
           value={password}
           onChange={(e) => {
@@ -66,11 +50,11 @@ const Login = () => {
         <p className="errorMsg">{passwordError}</p>
         {!hasAccount ? (
           <>
-            <label className="authLabel">Повторите пароль*</label>
             <input
               className="authInput"
               autoFocus
               type="password"
+              placeholder="Повторите пароль"
               required
               value={confirmPassword}
               onChange={(e) => {
@@ -84,11 +68,17 @@ const Login = () => {
         <div className="btnContainer">
           {hasAccount ? (
             <>
-              <button className="authButton" onClick={handleLogin}>
-                Войти
-              </button>
+              {email === "" || password === "" ? (
+                <button className="authButton" onClick={handleLogin}>
+                  Войти
+                </button>
+              ) : (
+                <button className="authButton" onClick={handleLogin}>
+                  <Link to="/">Войти</Link>
+                </button>
+              )}
               <p className="authP">
-                У вас нет аккаунта?
+                <span>У вас нет аккаунта?</span>
                 <span
                   className="authSpan"
                   onClick={() => setHasAccount(!hasAccount)}
@@ -101,11 +91,17 @@ const Login = () => {
             <>
               {password === confirmPassword ? (
                 <>
-                  <button className="authButton" onClick={handleSignUp}>
-                    Зарегистрироваться
-                  </button>
+                  {email === "" || password === "" ? (
+                    <button className="authButton" onClick={handleSignUp}>
+                      Зарегистрироваться
+                    </button>
+                  ) : (
+                    <button className="authButton" onClick={handleSignUp}>
+                      <Link to="/">Зарегистрироваться</Link>
+                    </button>
+                  )}
                   <p className="authP">
-                    У вас уже есть аккаунт?
+                    <span>У вас уже есть аккаунт?</span>
                     <span
                       className="authSpan"
                       onClick={() => setHasAccount(!hasAccount)}
@@ -121,7 +117,7 @@ const Login = () => {
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

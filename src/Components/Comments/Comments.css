@@ -1,0 +1,71 @@
+.containerComments {
+  display: flex;
+}
+
+.commentsInput {
+  width: 60%;
+  padding: 1%;
+}
+.commentsInput textarea {
+  min-width: 90%;
+  max-width: 90%;
+  min-height: 150px;
+  max-height: 150px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+}
+
+.commentsInput button {
+  margin: 2px;
+  min-width: 120px;
+  height: 40px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #646464;
+  transition: 0.3s;
+}
+.commentsInput button:hover {
+  background-color: black;
+  color: white;
+}
+
+.commentsRead {
+  width: 40%;
+  margin: 2%;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.commentsRead .commentUser {
+  background-color: rgba(218, 218, 218, 0.377);
+  border-radius: 5px;
+  margin: 20px auto 0;
+  padding: 2%;
+}
+.commentsRead .commentText {
+  width: 96%;
+  height: auto;
+  overflow: auto;
+  text-align: justify;
+  white-space: normal;
+}
+.commentUser .timeName {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+.timeName p {
+  margin: 0;
+}
+.timeName .time {
+  font-size: 0.8rem;
+}
+.timeName .name {
+  color: rgb(85, 54, 54);
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}

@@ -1,0 +1,15 @@
+.userWindow {
+  margin: 150px auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.userWindow h1 {
+  margin: 20px auto;
+  color: rgb(92, 92, 92);
+}
+.userWindow h2 {
+  margin: 20px auto;
+  color: rgba(92, 92, 92, 0.692);
+}

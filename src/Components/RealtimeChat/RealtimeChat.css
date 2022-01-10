@@ -1,0 +1,212 @@
+.openChat {
+  position: fixed;
+  bottom: 30%;
+  right: 3%;
+  width: 40px;
+  height: 40px;
+  color: #0091d4;
+  cursor: pointer;
+  animation: chatTransform 3s ease-in-out infinite alternate;
+}
+
+@keyframes chatTransform {
+  0% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+.openChat:hover {
+  animation: none;
+  transform: scale(1.1);
+}
+.openChat:active {
+  transform: scale(0.9);
+}
+
+::-webkit-scrollbar {
+  width: 12px; /* ширина для вертикального скролла */
+  height: 10px; /* высота для горизонтального скролла */
+  background-color: #e2e1e1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8d8d8db0;
+  border-radius: 5em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #646464;
+}
+
+.chat {
+  background-color: white;
+  position: fixed;
+  bottom: 7%;
+  right: 5%;
+  width: 350px;
+  height: 380px;
+  border-radius: 1% 5% 0 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.chat__navbar {
+  max-width: 100%;
+  min-height: 70px;
+  background-color: rgb(69, 139, 217);
+  border-radius: 3px 15px 0 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.chat__navbar .closeChat {
+  color: white;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  transition: 1s;
+}
+.chat__navbar .closeChat:hover {
+  transform: rotate(180deg);
+  color: rgb(204, 201, 201);
+}
+
+.chat__navbar_pTop {
+  margin: 0 0 2px 20px;
+  font-size: 16px;
+  color: rgb(37, 37, 37);
+}
+
+.chat__navbar_pBtm {
+  margin: 1px 0 2px 20px;
+  font-size: 13px;
+  color: rgb(224, 224, 224);
+}
+
+.chat__noEmail {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.856);
+  text-align: center;
+}
+
+.chat__noEmail h3 {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.3em;
+  color: #0091d4;
+}
+
+.chat__noEmail button {
+  margin: 2px;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #646464;
+  transition: 0.3s;
+}
+
+.chat__noEmail button:hover {
+  background-color: black;
+  color: white;
+}
+
+.logoGuideInChat {
+  margin: 10px auto;
+  background-image: url("../../assets/logo_guide.png");
+  background-size: cover;
+  width: 140px;
+  height: 130px;
+  cursor: pointer;
+  animation: circle 9s ease-in-out infinite;
+}
+
+@keyframes circle {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.chatOver {
+  margin-top: 10px;
+  padding: 5px;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 60%;
+}
+
+.chatOver__blockMess {
+  margin-bottom: 5%;
+  width: 60%;
+  height: auto;
+  min-height: 50px;
+  margin-top: 5px;
+  border-radius: 8px;
+  background-color: rgb(37, 116, 206);
+  display: flex;
+  flex-direction: column;
+}
+
+.chatOver__message {
+  margin: 0;
+  padding: 10px 10px 2px 10px;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  word-wrap: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.chatOver__name {
+  margin-left: 6%;
+  font-size: 0.96rem;
+  color: #646464;
+}
+
+.chatOver__time {
+  margin-left: 48%;
+  font-size: 12px;
+  color: rgb(54, 54, 54);
+  letter-spacing: 0.2px;
+}
+
+.chat__footer {
+  margin: 0;
+  padding: 0 1% 1% 1%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.chat__footer input {
+  width: 270px;
+  height: 30px;
+  outline: none;
+  font-size: 15px;
+  border: none;
+}
+
+.chat__footer button {
+  background-color: transparent;
+  border: none;
+}
+
+.sendM {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.sendM:hover {
+  transform: scale(1.1);
+}

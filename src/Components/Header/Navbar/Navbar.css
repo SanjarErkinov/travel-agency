@@ -2,6 +2,7 @@
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 .top_navbar {
   width: 100%;
@@ -15,7 +16,7 @@
   justify-content: space-between;
 }
 .right_block {
-  width: 40%;
+  width: 50%;
   padding: 1%;
 }
 .right_block ul {
@@ -29,6 +30,13 @@
   list-style: none;
   font-size: 0.8rem;
 }
+.right_block li {
+  cursor: pointer;
+}
+
+.right_block li:hover {
+  text-decoration: underline;
+}
 
 .left_block {
   width: 40%;
@@ -36,6 +44,7 @@
   display: flex;
   justify-content: end;
 }
+
 .left_block .icon_navbar {
   color: white;
   margin: 0 8px;
@@ -45,6 +54,34 @@
 }
 .left_block .icon_navbar:hover {
   opacity: 0.8;
+}
+
+.left_block .searchInput {
+  width: 150px;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.89);
+  background-color: transparent;
+  color: white;
+  border-radius: 10px;
+  padding: 0 10px;
+  transition: 1s;
+}
+
+.left_block .searchInput:focus {
+  background-color: rgba(255, 255, 255, 0.938);
+  color: #8e9fa9;
+}
+
+.left_block .email {
+  color: #fff;
+  border-left: 1px solid rgba(0, 0, 0, 0.253);
+  margin: 0;
+  padding: 2px 0 0 4px;
+  cursor: pointer;
+}
+
+.left_block .email:hover {
+  color: #313131;
 }
 
 .bottom_navbar {
@@ -79,7 +116,9 @@
   margin: 0 auto;
   opacity: 1;
   transition: 0.6s;
+  color: #2e2e2e;
 }
+
 .bottom_navbar__block .logo_guide {
   width: 70px;
   height: 70px;

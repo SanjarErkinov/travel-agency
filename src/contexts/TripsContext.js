@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { db } from "../firebase-config";
+import fire from "../firebase-config";
 import {
   addDoc,
   collection,
@@ -7,7 +7,9 @@ import {
   doc,
   getDocs,
   updateDoc,
+  getFirestore,
 } from "firebase/firestore";
+import { getDatabase, ref, get, child } from "firebase/database";
 
 export const tripsContext = createContext();
 
@@ -15,6 +17,8 @@ const INIT_STATE = {
   trips: [],
   tripsDetails: {},
   regions: [],
+  searchTrips: [],
+  messageObj: {},
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -25,13 +29,20 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, tripsDetails: action.payload };
     case "GET_REGIONS":
       return { ...state, regions: action.payload };
+    case "GET_SEARCH_TRIPS":
+      return { ...state, searchTrips: action.payload };
+    case "GET_REALTIME_CHAT":
+      return { ...state, messageObj: action.payload };
     default:
       return state;
   }
 };
+const dbReal = getDatabase(fire);
+const dbRef = ref(dbReal);
 
 const TripsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const db = getFirestore(fire);
 
   const tripsCollectionRef = collection(db, "trips");
 
@@ -64,13 +75,35 @@ const TripsContextProvider = ({ children }) => {
     try {
       const data = await getDocs(tripsCollectionRef);
       const tripsArr = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      const regionsArr = tripsArr.filter((elem) => elem.title === reg);
+      const regionsArr = tripsArr.filter((elem) => elem.regName === reg);
       dispatch({
         type: "GET_REGIONS",
         payload: regionsArr,
       });
     } catch (e) {
       console.log(e);
+    }
+  };
+
+  // Search //
+  const getSearch = async (val) => {
+    if (val.length > 0) {
+      let searchVal = val.toLowerCase();
+      const data = await getDocs(tripsCollectionRef);
+      const trips = data.docs
+        .map((doc) => ({ ...doc.data(), id: doc.id }))
+        .filter(
+          (item) =>
+            item.regName
+              .toLowerCase()
+              .slice(0, searchVal.length)
+              .indexOf(searchVal) !== -1
+        );
+      dispatch({ type: "GET_SEARCH_TRIPS", payload: trips });
+      val = "";
+    } else {
+      const trips = [];
+      dispatch({ type: "GET_SEARCH_TRIPS", payload: trips });
     }
   };
 
@@ -93,6 +126,33 @@ const TripsContextProvider = ({ children }) => {
     getTrips();
   };
 
+  // Realtime Chat
+
+  function readMessage() {
+    get(child(dbRef, `chat/`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const messages = [];
+          Object.keys(snapshot.val()).map((item) =>
+            messages.push(snapshot.val()[item])
+          );
+          dispatch({ type: "GET_REALTIME_CHAT", payload: messages });
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  //  Comments //
+  const addComments = async (id, newComment) => {
+    const tripDoc = doc(db, "trips", id);
+    await updateDoc(tripDoc, newComment);
+    getTrips();
+  };
+
   return (
     <tripsContext.Provider
       value={{
@@ -105,6 +165,11 @@ const TripsContextProvider = ({ children }) => {
         tripsDetails: state.tripsDetails,
         getRegion,
         regions: state.regions,
+        getSearch,
+        searchTrips: state.searchTrips,
+        readMessage,
+        messagesObj: state.messageObj,
+        addComments,
       }}
     >
       {children}

@@ -29,7 +29,6 @@ const AuthContextProvider = ({ children }) => {
   const [cartNumber, setCartNumber] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
-  const [userName, setUserName] = useState("");
 
   const clearInputs = () => {
     setEmail("");
@@ -39,7 +38,6 @@ const AuthContextProvider = ({ children }) => {
     setPhone("");
     setAddres("");
     setConfirmPassword("");
-    setUserName("");
   };
 
   const clearErrors = () => {
@@ -124,8 +122,6 @@ const AuthContextProvider = ({ children }) => {
     setConfirmPassword,
     confirmPasswordError,
     setConfirmPasswordError,
-    userName,
-    setUserName,
     setUser,
   };
 

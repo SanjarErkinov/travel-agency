@@ -1,9 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "@firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCwArMKBy4DXUTEmxLFElYioOE7YrF6vpQ",
   authDomain: "tourist-map-26dcf.firebaseapp.com",
+  databaseURL:
+    "https://tourist-map-26dcf-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "tourist-map-26dcf",
   storageBucket: "tourist-map-26dcf.appspot.com",
   messagingSenderId: "52035700522",
@@ -12,4 +13,4 @@ const firebaseConfig = {
 };
 
 const fire = initializeApp(firebaseConfig);
-export const db = getFirestore(fire);
+export default fire;
