@@ -41,7 +41,7 @@ const Admin = () => {
 
   return (
     <>
-      {email === "mirdin@mail.ru" ? (
+      {email === "hdrize8@gmail.com" ? (
         <div className="container addBlock">
           <form onSubmit={(e) => addTripBtn(e)}>
             <table>

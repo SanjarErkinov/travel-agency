@@ -63,13 +63,13 @@ const Footer = () => {
           <ul className="ulBottom">
             <li className="firstLi">На связи 24/7</li>
             <li>
-              +996<span>555 005 500</span>
+             <span>+996</span> 704 542 779
             </li>
             <li>
-              +996<span>555 005 500</span>
+            <span>+996</span> 706 478 479
             </li>
             <li>
-              +996<span>555 005 500</span>
+            <span>+996</span> 555 005 500
             </li>
           </ul>
         </div>

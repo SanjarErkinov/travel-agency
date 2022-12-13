@@ -57,7 +57,7 @@ const Navbar = () => {
         <div className="container top_navbar__block">
           <div className="right_block">
             <ul>
-              <li>Коммерческий курс</li>
+              <li>О Сертификате</li>
               <li>Отзыв</li>
               <li>О компании</li>
               <li>Контакты</li>
@@ -66,7 +66,7 @@ const Navbar = () => {
                   Главная
                 </a>
               </li>
-              {email === "mirdin@mail.ru" ? (
+              {email === "hdrize8@gmail.com" ? (
                 <Link to="/admin" style={{ color: "inherit" }}>
                   <li>Админ</li>
                 </Link>

@@ -17,7 +17,7 @@ const Home = () => {
           background: `no-repeat center/100% url('${bg}')`,
         }}
       >
-        Путешествуй по Кыргызстану с Guide!
+        Путешествуй по Кыргызстану с explore.kg!
       </div>
       <div className="container container_home">
         <div className="filterBlock">

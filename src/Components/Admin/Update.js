@@ -29,7 +29,7 @@ const Update = () => {
 
   return (
     <>
-      {email === "mirdin@mail.ru" ? (
+      {email === "hdrize8@gmail.com" ? (
         <div className="container" style={{ marginTop: "200px" }}>
           <form onSubmit={() => updateTripBtn(params)}>
             <table>

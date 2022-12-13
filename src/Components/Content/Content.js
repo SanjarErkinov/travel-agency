@@ -13,13 +13,13 @@ const Content = () => {
           <GiMountains className="iconContent" />
         </p>
         <p>
-          <span>Makers</span>
-          <span>Makers</span>
-          <span>Makers</span>
+          <span>Sanjar</span>
+          <span>it.Academt</span>
+          <span>Sanjar</span>
         </p>
       </div>
       <div className="section2">
-        <h2>Почему многие клиенты выбирают Guide?</h2>
+        <h2>Почему многие клиенты выбирают explore.kg</h2>
         <ul>
           <li>
             <p>
